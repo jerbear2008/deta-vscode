@@ -1,0 +1,11 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+    - name: oss-web
+      primary: true
+      src: .
+      engine: nodejs16
+      commands:
+        - cd vscode && npm install --legacy-peer-deps
+        - cd vscode && node scripts/code-web.sh --help
+      run: "node scripts/code-web.sh"
