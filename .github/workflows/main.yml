@@ -16,7 +16,9 @@ jobs:
           yarn
         
       - name: Build web
-        run: yarn compile-web
+        run: |
+          cd vscode
+          yarn compile-web
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
