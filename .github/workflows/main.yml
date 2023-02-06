@@ -24,7 +24,7 @@ jobs:
       - name: Build web
         run: |
           ls -a
-          yarn compile-web
+          ./scripts/code-web.sh --help
           ls -a
           ls -a .build
         
