@@ -5,14 +5,14 @@ jobs:
   push-to-space:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v3
-        with:
-          cache: 'yarn'
-    
       - uses: actions/checkout@v3
         with:
           repository: 'microsoft/vscode'
           submodules: recursive
+      
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
         
 #       # Not needed, already included on ubuntu
 #       - name: Install build tools
