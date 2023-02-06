@@ -1,0 +1,33 @@
+name: Push to Space
+on: push
+
+jobs:
+  push-to-space:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        
+      - name: Install build tools
+        run: apt-get -y install build-essential g++ libx11-dev libxkbfile-dev libsecret-1-dev python-is-python3
+    
+      - name: Install vscode deps
+        run: |
+          cd vscode
+          yarn        
+        
+      - name: Build web
+        run: yarn compile-web
+        
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: built
+          path: vscode
+
+      - name: Deta Space Deployment Github Action
+        uses: neobrains/space-deployment-github-action@0.1
+        with:
+          access_token: ${{ secrets.ACCESS_TOKEN }}
+          project_id: ${{ secrets.PROJECT_ID }}
+          space_push: true
+          list_on_discovery: true
