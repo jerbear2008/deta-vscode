@@ -25,9 +25,9 @@ jobs:
           path: vscode
 
       - name: Deta Space Deployment Github Action
-        uses: neobrains/space-deployment-github-action@0.3
+        uses: neobrains/space-deployment-github-action@v0.3
         with:
           access_token: ${{ secrets.ACCESS_TOKEN }}
           project_id: ${{ secrets.PROJECT_ID }}
           space_push: true
-          list_on_discovery: true
+          
