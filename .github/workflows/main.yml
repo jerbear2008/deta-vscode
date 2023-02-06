@@ -5,12 +5,17 @@ jobs:
   push-to-space:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+    
       - uses: actions/checkout@v3
         with:
           submodules: recursive
         
-      - name: Install build tools
-        run: sudo apt-get -y install build-essential g++ libx11-dev libxkbfile-dev libsecret-1-dev python-is-python3
+#       # Not needed, already included on ubuntu
+#       - name: Install build tools
+#         run: sudo apt-get -y install build-essential g++ libx11-dev libxkbfile-dev libsecret-1-dev python-is-python3
     
       - name: Install vscode deps
         run: |
@@ -24,12 +29,13 @@ jobs:
           pwd
           ls
           yarn compile-web
+          ls
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
         with:
           name: built
-          path: vscode
+          path: vscode/.build
 
       - name: Deta Space Deployment Github Action
         uses: neobrains/space-deployment-github-action@v0.3
