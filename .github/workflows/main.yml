@@ -23,15 +23,15 @@ jobs:
         
       - name: Build web
         run: |
-          ls
+          ls -a
           yarn compile-web
-          ls
+          ls -a
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
         with:
           name: built
-          path: vscode/.build
+          path: .build
 
       - name: Deta Space Deployment Github Action
         uses: neobrains/space-deployment-github-action@v0.3
