@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with:
           name: built
-          path: .build
+          path: .build/
 
       - name: Deta Space Deployment Github Action
         uses: neobrains/space-deployment-github-action@v0.3
