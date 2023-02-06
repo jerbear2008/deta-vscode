@@ -26,10 +26,11 @@ jobs:
           ls -a
           yarn compile-web
           ls -a
-          ls -a .built
+          ls -a .build
         
       - name: zip built files
         run: zip -r built.zip .build
+        
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
         with:
