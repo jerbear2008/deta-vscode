@@ -13,7 +13,8 @@ jobs:
         with:
           path: repo
       - run: |
-          mv -f -v repo/{.,}* .
+          shopt -s dotglob
+          mv -f -v repo/* .
           rm -r repo .git
       
       - uses: actions/setup-node@v3
