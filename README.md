@@ -1,2 +1,2 @@
 # deta-vscode
- VSCode on Deta :D
+VSCode on Deta :D

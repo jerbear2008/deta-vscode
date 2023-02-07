@@ -1,4 +1,4 @@
-name: Push to Space
+name: Build and push to Deta Space
 on: push
 
 jobs:
@@ -8,39 +8,32 @@ jobs:
       - name: Checkout vscode
         uses: actions/checkout@v3
         with:
-          repository: 'microsoft/vscode'
-      
+          repository: "microsoft/vscode"
+
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
           path: repo
-          
+
       - name: Merge repository into vscode
         run: |
           shopt -s dotglob
-          cp -rf --verbose repo/* .
+          cp -rf --verbose repo/vscode/* .
           rm -r repo .git
-      
+
       - uses: actions/setup-node@v3
         with:
-          cache: 'yarn'
-        
-#       # Not needed, already included on ubuntu
-#       - name: Install build tools
-#         run: sudo apt-get -y install build-essential g++ libx11-dev libxkbfile-dev libsecret-1-dev python-is-python3
-    
+          cache: "yarn"
+
+      # Not needed, already included on ubuntu
+      # - name: Install build tools
+      #   run: sudo apt-get -y install build-essential g++ libx11-dev libxkbfile-dev libsecret-1-dev python-is-python3
+
       - name: Install vscode deps
         run: yarn
-        
+
       - name: Build web
-        run: |
-          ls -a
-          ./scripts/code-web.sh --help
-          ls -a
-          ls -a .build
-        
-      - name: zip built files
-        run: zip -r built.zip .build
+        run: source build.sh
 
       - name: Deta Space Deployment Github Action
         uses: neobrains/space-deployment-github-action@v0.3
@@ -48,4 +41,3 @@ jobs:
           access_token: ${{ secrets.ACCESS_TOKEN }}
           project_id: ${{ secrets.PROJECT_ID }}
           space_push: true
-          
