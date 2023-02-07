@@ -19,7 +19,7 @@ jobs:
         run: |
           ls -a
           pwd
-          ls -a repo
+          tree -a repo
           shopt -s dotglob
           cp -rf --verbose ./repo/vscode/* .
           rm -r repo .git
