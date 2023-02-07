@@ -3,4 +3,6 @@
 yarn
 yarn download-builtin-extensions
 # bash scripts/code-web.sh --help
-echo "{}" > package.json
+jq 'del(.["dependencies","devDependencies"]) | del(.scripts.postinstall) | .scripts.preinstall |= "node installError.js"' package.json > packageNew.json
+mv packageNew.json package.json
+cat package.json # debug
