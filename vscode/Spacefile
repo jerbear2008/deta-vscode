@@ -5,4 +5,6 @@ micros:
       primary: true
       src: .
       engine: nodejs16
+      commands: 
+        - echo test
       run: "node scripts/code-web.js --port $PORT"
