@@ -5,16 +5,20 @@ jobs:
   push-to-space:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout vscode
+        uses: actions/checkout@v3
         with:
           repository: 'microsoft/vscode'
-        
+      
+      - name: Checkout repository
       - uses: actions/checkout@v3
         with:
           path: repo
+          
+      - name: Merge repository into vscode
       - run: |
           shopt -s dotglob
-          mv -f -v repo/* .
+          cp -rf --verbose repo/* .
           rm -r repo .git
       
       - uses: actions/setup-node@v3
