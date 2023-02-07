@@ -13,11 +13,8 @@ jobs:
         with:
           path: repo
       - run: |
-          ls -a
-          mv -f -v repo/* .
-          ls -a
+          mv -f -v repo/{.,}* .
           rm -r repo .git
-          causeanerrororsmth
       
       - uses: actions/setup-node@v3
         with:
