@@ -18,7 +18,6 @@ jobs:
       - name: Merge repository into vscode
         run: |
           shopt -s dotglob
-          rm -r repo/vscode/.git
           cp -rf --verbose repo/vscode/* .
           rm -r repo
 
