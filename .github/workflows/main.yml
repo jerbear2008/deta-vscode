@@ -1,5 +1,5 @@
 name: Build and push to Deta Space
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
   push-to-space:
