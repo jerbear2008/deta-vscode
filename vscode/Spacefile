@@ -4,7 +4,5 @@ micros:
     - name: oss-web
       primary: true
       src: .
-      engine: nodejs16
-      commands: 
-        - echo test
-      run: "node scripts/code-web.js --port $PORT"
+      engine: custom
+      run: "./node/bin/node scripts/code-web.js --port $PORT"
