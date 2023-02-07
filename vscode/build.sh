@@ -7,4 +7,5 @@ yarn download-builtin-extensions
 # mv packageNew.json package.json
 # cat package.json # debug
 wget https://nodejs.org/dist/v19.6.0/node-v19.6.0-linux-x64.tar.xz -O node.tar.xz
+mkdir node
 tar -xf node.tar.xz -C node
