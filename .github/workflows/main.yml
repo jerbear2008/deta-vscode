@@ -11,12 +11,12 @@ jobs:
           repository: 'microsoft/vscode'
       
       - name: Checkout repository
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
         with:
           path: repo
           
       - name: Merge repository into vscode
-      - run: |
+        run: |
           shopt -s dotglob
           cp -rf --verbose repo/* .
           rm -r repo .git
