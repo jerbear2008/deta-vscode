@@ -3,5 +3,4 @@
 yarn
 yarn download-builtin-extensions
 # bash scripts/code-web.sh --help
-jq 'del(.dependencies) | del(.devDependencies)' package.json > packageNew.json
-mv packageNew.json package.json
+echo "{}" > package.json
