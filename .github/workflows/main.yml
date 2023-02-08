@@ -1,5 +1,9 @@
 name: Build and push to Deta Space
-on: [push, workflow_dispatch]
+on: 
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
 
 jobs:
   push-to-space:
@@ -20,8 +24,10 @@ jobs:
           shopt -s dotglob
           cp -rf --verbose repo/vscode/* .
           rm -r repo
+          git remote set-url origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git"
 
-      - uses: actions/setup-node@v3
+      - name: Set up node and yarn
+        uses: actions/setup-node@v3
         with:
           cache: "yarn"
 
@@ -31,6 +37,13 @@ jobs:
 
       - name: Build web
         run: source build.sh
+        
+      - name: Push build to built branch
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Automatic GitHub Actions build
+          branch: built
+          create_branch: true
 
       - name: Deta Space Deployment Github Action
         uses: neobrains/space-deployment-github-action@v0.3
@@ -38,3 +51,6 @@ jobs:
           access_token: ${{ secrets.ACCESS_TOKEN }}
           project_id: ${{ secrets.PROJECT_ID }}
           space_push: true
+          
+          
+          a
