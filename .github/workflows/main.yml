@@ -28,9 +28,6 @@ jobs:
           shopt -s dotglob
           cp -rf --verbose repo/vscode/* .
           rm -r repo .git
-          git init -b built
-          git remote add origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git"
-          git fetch --depth=1
 
       - name: Set up node and yarn
         uses: actions/setup-node@v3
@@ -43,18 +40,11 @@ jobs:
 
       - name: Build web
         run: source build.sh
-        
-      - name: Push build to built branch
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Automatic GitHub Actions build
-          branch: built
-          create_branch: true
-
+      
       - name: Download node
         run: source downloadNode.sh
 
-      - name: Deta Space Deployment Github Action
+      - name: Push to Deta Space
         uses: neobrains/space-deployment-github-action@v0.3
         with:
           access_token: ${{ secrets.ACCESS_TOKEN }}
