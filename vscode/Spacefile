@@ -1,7 +1,7 @@
 # Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
 v: 0
 micros:
-    - name: oss-web
+    - name: vscode-web
       primary: true
       src: .
       engine: custom
