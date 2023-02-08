@@ -29,7 +29,7 @@ jobs:
           cp -rf --verbose repo/vscode/* .
           rm -r repo .git
           git init -b built
-          git remote set-url origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git"
+          git remote add origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git"
           git fetch --depth=1
 
       - name: Set up node and yarn
