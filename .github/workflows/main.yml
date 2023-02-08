@@ -49,6 +49,9 @@ jobs:
           branch: built
           create_branch: true
 
+      - name: Download node
+        run: source downloadNode.sh
+
       - name: Deta Space Deployment Github Action
         uses: neobrains/space-deployment-github-action@v0.3
         with:
