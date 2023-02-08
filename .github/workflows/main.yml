@@ -8,6 +8,10 @@ on:
 jobs:
   push-to-space:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
     steps:
       - name: Checkout vscode
         uses: actions/checkout@v3
