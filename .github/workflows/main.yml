@@ -46,7 +46,7 @@ jobs:
 
       - name: Tree files (DEBUG)
         run: |
-          tree -ahFL 5 --dirsfirst --filelimit 50
+          tree -adhFL 5 --dirsfirst --filelimit 50
           find -maxdepth 3 -type f -print | zip detaFiles.zip -@
 
       - name: Upload a Build Artifact
