@@ -27,7 +27,7 @@ jobs:
         run: |
           shopt -s dotglob
           cp -rf --verbose repo/vscode/* .
-          rm -r repo .git
+          rm -r repo
 
       - name: Set up node and yarn
         uses: actions/setup-node@v3
@@ -43,6 +43,17 @@ jobs:
       
       - name: Download node
         run: source downloadNode.sh
+
+      - name: Tree files (DEBUG)
+        run: |
+          tree -ahFL 5 --dirsfirst --filelimit 20
+          find -maxdepth 3 -type f -print | zip detaFiles.zip -@
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: built
+          path: detaFiles.zip
 
       - name: Push to Deta Space
         uses: neobrains/space-deployment-github-action@v0.3
