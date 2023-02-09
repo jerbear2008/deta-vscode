@@ -46,8 +46,11 @@ jobs:
 
       - name: Tree files (DEBUG)
         run: |
+          echo DEBUG1
           tree -adhFL 5 --dirsfirst --filelimit 50
+          echo DEBUG2
           find -maxdepth 3 -type f -print | zip detaFiles.zip -@
+          echo DEBUG3
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
