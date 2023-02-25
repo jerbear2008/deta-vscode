@@ -32,6 +32,7 @@ jobs:
       - name: Set up node and yarn
         uses: actions/setup-node@v3
         with:
+          node-version: 16
           cache: "yarn"
 
       # Not needed, already included on ubuntu
