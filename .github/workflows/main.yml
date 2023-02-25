@@ -58,17 +58,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          # cache: 'yarn'
+          cache: 'npm'
 
       - name: Install npm modules
         run: |
           cd frontend
-          yarn
-          pwd
-          cd ..
-          pwd
-          tree -aFL 5 --dirsfirst --filelimit 50
-
+          npm i
 
       - name: Push to Deta Space
         uses: neobrains/space-deployment-github-action@v0.3
