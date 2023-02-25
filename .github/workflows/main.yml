@@ -1,23 +1,23 @@
 name: Build and push to Deta Space
-on: 
+on:
   push:
     branches:
-      - 'main'
+      - "main"
   workflow_dispatch:
 
 jobs:
   push-to-space:
     runs-on: ubuntu-latest
-    
+
     permissions:
       contents: write
-    
+
     steps:
       - name: Checkout vscode
         uses: actions/checkout@v3
         with:
           repository: "microsoft/vscode"
-        
+
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
@@ -40,23 +40,11 @@ jobs:
 
       - name: Build web
         run: source build.sh
-      
-      - name: Download node
-        run: source downloadNode.sh
 
-      - name: Tree files (DEBUG)
-        run: |
-          echo DEBUG1
-          tree -adhFL 5 --dirsfirst --filelimit 50
-          echo DEBUG2
-          find -maxdepth 3 -type f -print | zip detaFiles.zip -@
-          echo DEBUG3
-
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: built
-          path: detaFiles.zip
+      # - name: Upload a Build Artifact
+      #   uses: actions/upload-artifact@v3.1.2
+      #   with:
+      #     name: built
 
       - name: Push to Deta Space
         uses: neobrains/space-deployment-github-action@v0.3
