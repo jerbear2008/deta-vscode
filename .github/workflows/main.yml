@@ -2,7 +2,7 @@ name: Build and push to Deta Space
 on:
   push:
     branches:
-      - "main"
+      - 'main'
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout vscode
         uses: actions/checkout@v3
         with:
-          repository: "microsoft/vscode"
+          repository: 'microsoft/vscode'
 
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -33,7 +33,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: "yarn"
+          cache: 'yarn'
 
       # Not needed, already included on ubuntu
       # - name: Install build tools
@@ -41,6 +41,10 @@ jobs:
 
       - name: Build web
         run: source build.sh
+
+      - name: Tree files (DEBUG)
+        run: |
+          tree -adhFL 5 --dirsfirst --filelimit 50
 
       # - name: Upload a Build Artifact
       #   uses: actions/upload-artifact@v3.1.2
