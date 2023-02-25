@@ -19,6 +19,6 @@
   },
   "folderUri": {
     "scheme": "memfs",
-    "path": "/browser"
+    "path": "/sample-folder"
   }
 }
