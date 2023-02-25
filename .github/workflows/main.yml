@@ -65,7 +65,7 @@ jobs:
           cd frontend
           yarn
           pwd
-          tree -aFL 5 --dirsfirst --filelimit 50
+        # tree -aFL 5 --dirsfirst --filelimit 50
           cd ..
           pwd
           tree -aFL 5 --dirsfirst --filelimit 50
