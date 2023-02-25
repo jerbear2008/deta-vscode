@@ -1,0 +1,24 @@
+{
+  "productConfiguration": {
+    "nameShort": "VSCode",
+    "nameLong": "Deta VSCode",
+    "applicationName": "deta-vscode",
+    "dataFolderName": ".deta-vscode",
+    "version": "1.75.0",
+    "extensionsGallery": {
+      "serviceUrl": "https://open-vsx.org/vscode/gallery",
+      "itemUrl": "https://open-vsx.org/vscode/item",
+      "resourceUrlTemplate": "https://openvsxorg.blob.core.windows.net/resources/{publisher}/{name}/{version}/{path}"
+    },
+    "extensionEnabledApiProposals": {
+      "vscode.vscode-web-playground": [
+        "fileSearchProvider",
+        "textSearchProvider"
+      ]
+    }
+  },
+  "folderUri": {
+    "scheme": "memfs",
+    "path": "/browser"
+  }
+}
