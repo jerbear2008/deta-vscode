@@ -65,10 +65,10 @@ jobs:
           cd frontend
           yarn
           pwd
-          tree -adhFL 5 --dirsfirst --filelimit 50
+          tree -aFL 5 --dirsfirst --filelimit 50
           cd ..
           pwd
-          tree -adhFL 5 --dirsfirst --filelimit 50
+          tree -aFL 5 --dirsfirst --filelimit 50
 
 
       - name: Push to Deta Space
