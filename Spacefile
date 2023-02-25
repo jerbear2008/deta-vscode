@@ -3,5 +3,7 @@ v: 0
 micros:
   - name: frontend
     src: frontend
-    engine: nodejs16
-    run: "node serve.js"
+    engine: static
+    commands:
+      - npm i
+    serve: .
