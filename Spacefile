@@ -4,5 +4,5 @@ micros:
   - name: frontend
     primary: true
     src: frontend
-    engine: nodejs16
-    run: "node serve.js"
+    engine: static
+    serve: .

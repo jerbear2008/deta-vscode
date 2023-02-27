@@ -1,7 +1,5 @@
 {
   "dependencies": {
-    "@fastify/static": "^6.9.0",
-    "fastify": "^4.13.0",
     "vscode-web": "^1.75.1"
   }
 }
