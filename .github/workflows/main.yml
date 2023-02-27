@@ -64,6 +64,7 @@ jobs:
         run: |
           cd frontend
           npm i
+          mkdir vscode-web
           cp ./node_modules/vscode-web/dist/* ./vscode-web
           cp ./node_modules/vscode-web/dist/{code-192.png,code-512.png,favicon.ico,manifest.json} .
           ls -a
