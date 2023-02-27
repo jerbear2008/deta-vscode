@@ -64,6 +64,7 @@ jobs:
         run: |
           cd frontend
           npm i
+          mv ./node_modules/vscode-web/dist/* .
 
       - name: Push to Deta Space
         uses: neobrains/space-deployment-github-action@v0.3

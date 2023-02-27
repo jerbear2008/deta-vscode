@@ -2,8 +2,7 @@
 v: 0
 micros:
   - name: frontend
+    primary: true
     src: frontend
     engine: static
-    commands:
-      - npm i
     serve: .
