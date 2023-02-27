@@ -1,8 +1,0 @@
-# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
-v: 0
-micros:
-    - name: vscode-web
-      primary: true
-      src: .
-      engine: custom
-      run: "./node/bin/node scripts/code-web.js --port $PORT"
