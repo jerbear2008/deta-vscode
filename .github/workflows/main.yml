@@ -60,15 +60,15 @@ jobs:
       #     node-version: 16
       #     # cache: 'npm'
 
-      # - name: Install npm modules
-      #   run: |
-      #     cd frontend
-      #     npm i
-      #     mkdir vscode-web
-      #     cp -r ./node_modules/vscode-web/dist/* ./vscode-web
-      #     cp ./node_modules/vscode-web/dist/{code-192.png,code-512.png,favicon.ico,manifest.json} .
-      #     ls -a
-      #     ls -a ./vscode-web
+      - name: Install npm modules
+        run: |
+          cd frontend
+          npm i
+          mkdir vscode-web
+          cp -r ./node_modules/vscode-web/dist/* ./vscode-web
+          cp ./node_modules/vscode-web/dist/{code-192.png,code-512.png,favicon.ico,manifest.json} .
+          ls -a
+          ls -a ./vscode-web
 
       - name: Push to Deta Space
         uses: neobrains/space-deployment-github-action@v0.3
