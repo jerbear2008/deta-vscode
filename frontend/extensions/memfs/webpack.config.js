@@ -24,6 +24,7 @@ const webConfig = /** @type WebpackConfig */ {
       // see https://webpack.js.org/configuration/resolve/#resolvefallback
       // for the list of Node.js core module polyfills.
       assert: require.resolve('assert'),
+      path: require.resolve('path-browserify'),
     },
   },
   module: {
@@ -58,9 +59,6 @@ const nodeConfig = /** @type WebpackConfig */ {
   target: 'node', // extensions run in a node context
   entry: {
     'extension-node': './src/extension.ts', // source of the node extension main file
-    'test/suite/index-node': './src/test/suite/index-node.ts', // source of the node extension test runner
-    'test/suite/extension.test': './src/test/suite/extension.test.ts', // create a separate file for the tests, to be found by glob
-    'test/runTest': './src/test/runTest', // used to start the VS Code test runner (@vscode/test-electron)
   },
   output: {
     filename: '[name].js',
@@ -87,7 +85,6 @@ const nodeConfig = /** @type WebpackConfig */ {
   externals: {
     'vscode': 'commonjs vscode', // ignored because it doesn't exist
     'mocha': 'commonjs mocha', // don't bundle
-    '@vscode/test-electron': 'commonjs @vscode/test-electron', // don't bundle
   },
   performance: {
     hints: false,

@@ -20,7 +20,7 @@
     "onFileSystem:memfs"
   ],
   "main": "./out/src/extension",
-	"browser": "./dist/web/extension.js",
+  "browser": "./dist/web/extension.js",
   "contributes": {
     "commands": [
       {
@@ -86,14 +86,17 @@
   "devDependencies": {
     "@types/node": "^16.11.7",
     "@types/vscode": "^1.73.0",
+    "@types/webpack-env": "^1.16.0",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
     "eslint": "^8.26.0",
-    "typescript": "^4.9.4",
+    "process": "^0.11.10",
     "ts-loader": "^9.2.2",
+    "typescript": "^4.9.4",
     "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.0",
-    "@types/webpack-env": "^1.16.0",
-    "process": "^0.11.10"
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "path-browserify": "^1.0.1"
   }
 }
