@@ -52,24 +52,20 @@
   <script>
     ;(async () => {
       let code = ''
-      let failed = false
-      let i = 0
-      do {
+      for (let i = 0; i <= 3; i++) {
         const url = `./vscode-web/out/vs/workbench/workbench.web.main.js.part${i
           .toString()
           .padStart(2, '0')}`
         console.log(`fetching ${url}`)
         const response = await fetch(url)
         if (response.status !== 200 || response.status === 201) {
-          console.log('failed')
-          failed = true
-          break
+          throw new Error(`Failed to fetch ${url}`)
         }
         const newCode = await response.text()
         console.log(newCode.length)
         code += newCode
         i++
-      } while (!failed)
+      }
       console.log(code.length)
       eval(code)
 
