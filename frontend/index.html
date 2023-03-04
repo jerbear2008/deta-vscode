@@ -43,5 +43,26 @@
 	</script>
 	<script src="./vscode-web/out/vs/workbench/workbench.web.main.nls.js"></script>
 	<script src="./vscode-web/out/vs/workbench/workbench.web.main.js"></script>
+	<script>
+		;(async () => {
+			const code = ''
+			let failed = false
+			let i = 1
+			do {
+				try {
+					const url = `./vscode-web/out/vs/workbench/workbench.web.main.js.part${i.toString().padStart(2, '0')}}`
+					const response = await fetch(url)
+					if (response.status === 404) {
+						throw new Error('404')
+					}
+					code += await response.text()
+				} catch (e) {
+					failed = true
+				}
+			} while (!failed)
+			console.log(code.length)
+			eval(code)
+		})()
+	</script>
 	<script src="./vscode-web/out/vs/code/browser/workbench/workbench.js"></script>
 </html>

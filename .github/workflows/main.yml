@@ -64,11 +64,14 @@ jobs:
         run: |
           cd frontend
           npm i
+          split -C 6MB -d node_modules/vscode-web/dist/out/vs/workbench/workbench.web.main.js node_modules/vscode-web/dist/out/vs/workbench/workbench.web.main.js.part
           mkdir vscode-web
           cp -r ./node_modules/vscode-web/dist/* ./vscode-web
           cp ./node_modules/vscode-web/dist/{code-192.png,code-512.png,favicon.ico,manifest.json} .
           ls -a
           ls -a ./vscode-web
+          echo debug
+          ls -a ./vscode-web/out/vs/workbench
 
       - name: Push to Deta Space
         uses: neobrains/space-deployment-github-action@v0.3
