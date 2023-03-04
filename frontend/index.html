@@ -68,6 +68,7 @@
         const newCode = await response.text()
         console.log(newCode.length)
         code += newCode
+        i++
       } while (!failed)
       console.log(code.length)
       eval(code)
