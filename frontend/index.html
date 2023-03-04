@@ -60,7 +60,7 @@
           .padStart(2, '0')}`
         console.log(`fetching ${url}`)
         const response = await fetch(url)
-        if (response.status === 404) {
+        if (response.status !== 200 || response.status === 201) {
           console.log('failed')
           failed = true
           break

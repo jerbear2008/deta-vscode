@@ -64,7 +64,7 @@ jobs:
         run: |
           cd frontend
           npm i
-          split -C 6MB -d node_modules/vscode-web/dist/out/vs/workbench/workbench.web.main.js node_modules/vscode-web/dist/out/vs/workbench/workbench.web.main.js.part
+          split -C 3MB -d node_modules/vscode-web/dist/out/vs/workbench/workbench.web.main.js node_modules/vscode-web/dist/out/vs/workbench/workbench.web.main.js.part
           mkdir vscode-web
           cp -r ./node_modules/vscode-web/dist/* ./vscode-web
           cp ./node_modules/vscode-web/dist/{code-192.png,code-512.png,favicon.ico,manifest.json} .
