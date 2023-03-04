@@ -13,43 +13,6 @@ jobs:
       contents: write
 
     steps:
-      # - name: Checkout vscode
-      #   uses: actions/checkout@v3
-      #   with:
-      #     repository: 'microsoft/vscode'
-
-      # - name: Checkout repository
-      #   uses: actions/checkout@v3
-      #   with:
-      #     path: repo
-
-      # - name: Merge repository into vscode
-      #   run: |
-      #     shopt -s dotglob
-      #     cp -rf --verbose repo/vscode/* .
-      #     rm -r repo
-
-      # - name: Set up node and yarn
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 16
-      #     cache: 'yarn'
-
-      # # Not needed, already included on ubuntu
-      # # - name: Install build tools
-      # #   run: sudo apt-get -y install build-essential g++ libx11-dev libxkbfile-dev libsecret-1-dev python-is-python3
-
-      # - name: Build web
-      #   run: source build.sh
-
-      # - name: Tree files (DEBUG)
-      #   run: |
-      #     tree -adhFL 5 --dirsfirst --filelimit 50
-
-      # # - name: Upload a Build Artifact
-      # #   uses: actions/upload-artifact@v3.1.2
-      # #   with:
-      # #     name: built
 
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -60,18 +23,9 @@ jobs:
           node-version: 16
           # cache: 'npm'
 
-      - name: Install npm modules
+      - name: Install and build
         run: |
-          cd frontend
-          npm i
-          split -C 3MB -d node_modules/vscode-web/dist/out/vs/workbench/workbench.web.main.js node_modules/vscode-web/dist/out/vs/workbench/workbench.web.main.js.part
-          mkdir vscode-web
-          cp -r ./node_modules/vscode-web/dist/* ./vscode-web
-          cp ./node_modules/vscode-web/dist/{code-192.png,code-512.png,favicon.ico,manifest.json} .
-          ls -a
-          ls -a ./vscode-web
-          echo debug
-          ls -a ./vscode-web/out/vs/workbench
+          source build.sh 
 
       - name: Push to Deta Space
         uses: neobrains/space-deployment-github-action@v0.3

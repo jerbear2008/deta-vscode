@@ -56,16 +56,13 @@
         const url = `./vscode-web/out/vs/workbench/workbench.web.main.js.part${i
           .toString()
           .padStart(2, '0')}`
-        console.log(`fetching ${url}`)
         const response = await fetch(url)
         if (response.status !== 200 || response.status === 201) {
           throw new Error(`Failed to fetch ${url}`)
         }
         const newCode = await response.text()
-        console.log(newCode.length)
         code += newCode
       }
-      console.log(code.length)
       eval(code)
 
       const scriptTag = document.createElement('script')
