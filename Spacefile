@@ -6,3 +6,10 @@ micros:
     src: frontend
     engine: static
     serve: .
+    public_routes:
+      - /manifest.json # static logos and config
+      - /favicon.ico
+      - /code-192.png
+      - /code-512.png
+      - /vscode-web # built files only, for good caching
+      
