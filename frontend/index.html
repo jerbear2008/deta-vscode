@@ -51,9 +51,9 @@
   <script src="./vscode-web/out/vs/workbench/workbench.web.main.nls.js"></script>
   <script>
     ;(async () => {
-      const code = ''
+      let code = ''
       let failed = false
-      let i = 1
+      let i = 0
       do {
         const url = `./vscode-web/out/vs/workbench/workbench.web.main.js.part${i
           .toString()
