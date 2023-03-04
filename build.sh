@@ -13,4 +13,4 @@ cp ./node_modules/vscode-web/dist/{code-192.png,code-512.png,favicon.ico,manifes
 # Build extensions
 cd extensions/memfs
 npm i
-npm run build
+npm run compile
