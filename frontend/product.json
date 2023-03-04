@@ -20,5 +20,11 @@
   "folderUri": {
     "scheme": "memfs",
     "path": "/sample-folder"
-  }
+  },
+  "additionalBuiltinExtensions": [
+	  {
+		"scheme": "http",
+		"path": "/extensions/memfs"
+	  }
+	]
 }
