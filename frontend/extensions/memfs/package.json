@@ -1,7 +1,8 @@
 {
-  "name": "vscode-memfs",
-  "displayName": "MemFS - a file system provider sample",
-  "description": "Showcase for the file system provider API, also useful for testing again document that are not on disk.",
+  "name": "deta-web",
+  "displayName": "Deta VScode",
+  "description": "Manages filesystyems for Deta VSCode",
+  "version": "0.0.1",
   "engines": {
     "vscode": "^1.74.0"
   },
