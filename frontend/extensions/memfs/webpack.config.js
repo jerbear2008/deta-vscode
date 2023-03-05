@@ -83,8 +83,8 @@ const nodeConfig = /** @type WebpackConfig */ {
     ],
   },
   externals: {
-    'vscode': 'commonjs vscode', // ignored because it doesn't exist
-    'mocha': 'commonjs mocha', // don't bundle
+    vscode: 'commonjs vscode', // ignored because it doesn't exist
+    mocha: 'commonjs mocha', // don't bundle
   },
   performance: {
     hints: false,
