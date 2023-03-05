@@ -20,7 +20,7 @@
     "onFileSystem:memfs"
   ],
   "main": "./out/src/extension",
-  "browser": "./dist/web/extension.js",
+  "browser": "./dist/extension-web.js",
   "contributes": {
     "commands": [
       {
