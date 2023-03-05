@@ -19,7 +19,7 @@
   "activationEvents": [
     "onFileSystem:memfs"
   ],
-  "main": "./out/src/extension",
+  "main": "./dist/extension",
   "browser": "./dist/extension-web.js",
   "contributes": {
     "commands": [
