@@ -17,10 +17,6 @@
       ]
     }
   },
-  "folderUri": {
-    "scheme": "memfs",
-    "path": "/sample-folder"
-  },
   "additionalBuiltinExtensions": [
     {
       "scheme": "https",
