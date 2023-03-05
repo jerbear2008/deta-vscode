@@ -22,7 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
   )
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('browser.clear', (_) => {
+    vscode.commands.registerCommand('deta.clearBrowser', (_) => {
       for (const [name] of memFs.readDirectory(vscode.Uri.parse('browser:/'))) {
         memFs.delete(vscode.Uri.parse(`browser:/${name}`))
       }
@@ -43,7 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
   )
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('browser.workspaceInit', (_) => {
+    vscode.commands.registerCommand('deta.init', (_) => {
       vscode.workspace.updateWorkspaceFolders(
         0,
         0,
